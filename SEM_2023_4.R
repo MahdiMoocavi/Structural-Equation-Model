@@ -257,16 +257,14 @@ parameterEstimates(fit2.bootstrap)
 ### Cross-Validation
 # Splitting the data
 set.seed(123)  # for reproducibility
-train_index <- sample(1:nrow(df), 0.7 * nrow(df))
-train_df <- df[train_index, ]
-test_df <- df[-train_index, ]
+train_index <- sample(seq_len(nrow(df)), floor(0.7 * nrow(df)))
+train_df <- df[train_index, , drop = FALSE]
+test_df <- df[-train_index, , drop = FALSE]
 
-# Re-fitting Model III with the training data
+# Fit the same prespecified model separately in the training and hold-out sets.
+# This compares model fit across samples; it is not a prediction benchmark.
 fit2_train <- sem(model2, data = train_df)
-# Model validation with testing data
-fit2_test <- sem(model2, data = test_df,
-                 sample.cov = lavInspect(fit3_train, "sampstat"),
-                 sample.nobs = nrow(test_df), meanstructure = FALSE)
+fit2_test <- sem(model2, data = test_df)
 
 # Comparing fit measures of train and test data
 fitMeasures(fit2_train, c("logl", "AIC", "BIC", "chisq", "df",
