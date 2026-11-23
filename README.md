@@ -31,7 +31,7 @@ flowchart TD
 ## Implementation
 
 - **Language:** R
-- **Main script:** `religiosity_attitudes_sem.R)
+- **Main script:** `religiosity_attitudes_sem.R`
 - **Core modelling package:** `lavaan`
 
 ```r
