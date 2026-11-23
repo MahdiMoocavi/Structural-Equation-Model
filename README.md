@@ -1,29 +1,38 @@
 # Latent-Variable Modelling of Religiosity and Attitudes
 
-An R analysis demonstrating data preparation, confirmatory factor analysis (CFA), structural equation modelling (SEM), mediation models, model comparison, bootstrap-based estimation, and a hold-out model-fit comparison.
+An R analysis demonstrating confirmatory factor analysis (CFA), structural equation modelling (SEM), mediation, model comparison, bootstrap-based estimation, and a hold-out comparison of model fit.
 
 ## Research focus
 
-The script examines relationships among latent constructs representing religiosity, attitudes, meaning, and confidence in institutions, and explores how religiosity, education, and happiness relate to attitudes toward Muslims in the selected survey dataset.
+The analysis examines relationships among latent constructs representing religiosity, attitudes, meaning, and confidence in institutions. It also explores how religiosity, education, and happiness relate to attitudes toward Muslims in the selected survey dataset.
 
 ## Analysis workflow
 
-1. Import the survey data and select variables relevant to the research questions.
-2. Recode selected categorical variables and missing-value codes.
-3. Prepare scale scores, reverse-coded items, and analysis variables.
-4. Inspect descriptive statistics, missingness, distributions, correlations, and multicollinearity.
-5. Fit a confirmatory factor analysis model for the latent constructs.
-6. Estimate structural models and indirect pathways involving education and happiness.
-7. Compare model fit, conduct a sensitivity analysis, and obtain bootstrap parameter estimates.
-8. Fit the same prespecified model separately in a training subset and a hold-out subset for a descriptive comparison of model fit.
+```mermaid
+flowchart TD
+    A[Survey data] --> B[Recode and prepare variables]
+    B --> C[Descriptive and data-quality checks]
+    C --> D[Confirmatory factor analysis]
+    D --> E[Structural models and indirect pathways]
+    E --> F[Model comparison and sensitivity analysis]
+    F --> G[Bootstrap estimates and hold-out fit comparison]
+```
 
-## Input data
+## Methods
 
-The script expects the SPSS data file ZA7570_v2-1-0.sav in the working directory. The dataset is not included; users must obtain it from its authorized source and comply with its terms of use.
+- Recode selected categorical variables and missing-value codes.
+- Prepare scale scores, reverse-coded items, and analysis variables.
+- Inspect descriptive statistics, missingness, distributions, correlations, and multicollinearity.
+- Fit a confirmatory factor analysis model for latent constructs.
+- Estimate structural models and indirect pathways involving education and happiness.
+- Compare model fit, conduct sensitivity analyses, and obtain bootstrap parameter estimates.
+- Fit the same prespecified model separately in training and hold-out subsets for a descriptive comparison of fit.
 
-## Requirements
+## Implementation
 
-R and the following packages:
+- **Language:** R
+- **Main script:** `religiosity_attitudes_sem.R)
+- **Core modelling package:** `lavaan`
 
 ```r
 install.packages(c(
@@ -32,14 +41,12 @@ install.packages(c(
 ))
 ```
 
-## Run
+## Input data
 
-Place the authorized .sav file in the working directory, install the dependencies, and execute religiosity_attitudes_sem.R.
-
-## Outputs
-
-The script prints descriptive and model summaries and generates correlation and SEM path visualizations in the active graphics device.
+The script expects the SPSS file `ZA7570_v2-1-0.sav` in the working directory. The dataset is not included; obtain it from its authorised source and comply with its terms of use.
 
 ## Interpretation and limitations
 
-The train/test section is a hold-out comparison of model fit, not a predictive-accuracy benchmark. Model specification, missing-data handling, outlier rules, sample splitting, and fit diagnostics should be reviewed in the context of the research question. The source survey data are required for numerical reproduction.
+The train/test section is a hold-out comparison of model fit, not a predictive-accuracy benchmark. Model specification, missing-data handling, outlier rules, sample splitting, and fit diagnostics should be reviewed in the context of the research question.
+
+The source survey data are required to reproduce numerical results.
