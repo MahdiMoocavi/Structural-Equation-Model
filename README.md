@@ -1,6 +1,6 @@
 # Structural Equation Modelling: Religiosity, Meaning, and Attitudes
 
-An R analysis demonstrating data preparation, confirmatory factor analysis (CFA), structural equation modelling (SEM), mediation models, model comparison, and bootstrap-based estimation.
+An R analysis demonstrating data preparation, confirmatory factor analysis (CFA), structural equation modelling (SEM), mediation models, model comparison, bootstrap-based estimation, and a hold-out model-fit comparison.
 
 ## Research focus
 
@@ -15,11 +15,11 @@ The script examines relationships among latent constructs representing religiosi
 5. Fit a confirmatory factor analysis model for the latent constructs.
 6. Estimate structural models and indirect pathways involving education and happiness.
 7. Compare model fit, conduct a sensitivity analysis, and obtain bootstrap parameter estimates.
-8. Explore a train/test split for model assessment.
+8. Fit the same prespecified model separately in a training subset and a hold-out subset for a descriptive comparison of model fit.
 
 ## Input data
 
-The script expects the SPSS data file `ZA7570_v2-1-0.sav` in the working directory. The dataset is not included in this repository; users must obtain it from its authorized source and comply with its terms of use.
+The script expects the SPSS data file ZA7570_v2-1-0.sav in the working directory. The dataset is not included; users must obtain it from its authorized source and comply with its terms of use.
 
 ## Requirements
 
@@ -34,12 +34,12 @@ install.packages(c(
 
 ## Run
 
-Place the authorized `.sav` file in the working directory, install the dependencies, and execute `SEM_2023_4.R`.
+Place the authorized .sav file in the working directory, install the dependencies, and execute SEM_2023_4.R.
 
 ## Outputs
 
 The script prints descriptive and model summaries and generates correlation and SEM path visualizations in the active graphics device.
 
-## Validation note
+## Interpretation and limitations
 
-The data preparation and model definitions are research-specific. The cross-validation section currently contains an inconsistent training-model object reference and requires correction before the train/test results can be interpreted. Model specification, missing-data handling, outlier rules, and fit diagnostics should be reviewed in the context of the research question.
+The train/test section is a hold-out comparison of model fit, not a predictive-accuracy benchmark. Model specification, missing-data handling, outlier rules, sample splitting, and fit diagnostics should be reviewed in the context of the research question. The source survey data are required for numerical reproduction.
