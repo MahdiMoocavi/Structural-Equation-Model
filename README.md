@@ -1,4 +1,4 @@
-# Structural Equation Modelling: Religiosity, Meaning, and Attitudes
+# Latent-Variable Modelling of Religiosity and Attitudes
 
 An R analysis demonstrating data preparation, confirmatory factor analysis (CFA), structural equation modelling (SEM), mediation models, model comparison, bootstrap-based estimation, and a hold-out model-fit comparison.
 
@@ -34,7 +34,7 @@ install.packages(c(
 
 ## Run
 
-Place the authorized .sav file in the working directory, install the dependencies, and execute SEM_2023_4.R.
+Place the authorized .sav file in the working directory, install the dependencies, and execute religiosity_attitudes_sem.R.
 
 ## Outputs
 
